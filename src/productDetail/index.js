@@ -6,9 +6,6 @@ import { get } from 'lodash';
 class Index extends PureComponent {
  componentDidMount() {
   const { getProductDetails, match } = this.props;
-  // const { parameter1, parameter2, parameter3 } = props.match.params;
-
-  console.log('Call te product list  api', match.params.id);
   getProductDetails(match.params.id);
  }
 
@@ -37,11 +34,6 @@ class Index extends PureComponent {
  }
 }
 
-// const mapStateToProps = (state) => ({
-//  userData: state.auth.user_data,
-//  saved: state.user.saved,
-//  companyMemberList: state.company.companyMemberList,
-// });
 
 const mapDispatchToProps = (dispatch) => {
  return {
