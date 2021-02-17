@@ -16,9 +16,7 @@ class App extends PureComponent {
        <Route path="/productList">
         <ProductList />
        </Route>
-       <Route path="/productDetail">
-        <ProductDetail />
-       </Route>
+       <Route path="/productDetail/:id" component={ProductDetail} />
        <Route path="/">
         <LoginForm />
        </Route>

@@ -11,7 +11,7 @@ class Index extends PureComponent {
 
  gotoProductDetail = (id) => {
   console.log('go');
-  window.location.href = `/productDetail?id=${id}`;
+  window.location.href = `/productDetail/${id}`;
  };
 
  render() {
