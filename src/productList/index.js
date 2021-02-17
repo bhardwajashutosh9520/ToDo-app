@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { getProductList } from '../reducer/product';
-
+import Header from '../sharedComponents/header';
 class Index extends PureComponent {
  componentDidMount() {
   const { getProductList } = this.props;
@@ -42,21 +42,24 @@ class Index extends PureComponent {
    });
   }
   return (
-   <div className="container mt-5">
-    <div>
-     <h3>Product List</h3>
-     <table class="table table-striped table-hover">
-      <tr>
-       <th>Name:</th>
-       <th>Image</th>
-       <th>Price</th>
-       <th>excludingGstPrice</th>
-       <th>rating</th>
-       <th>discount_off</th>
-       <th>View details</th>
-      </tr>
-      {showList}
-     </table>
+   <div>
+    <Header />
+    <div className="container mt-5">
+     <div>
+      <h3>Product List</h3>
+      <table class="table table-striped table-hover">
+       <tr>
+        <th>Name:</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>excludingGstPrice</th>
+        <th>rating</th>
+        <th>discount_off</th>
+        <th>View details</th>
+       </tr>
+       {showList}
+      </table>
+     </div>
     </div>
    </div>
   );
