@@ -5,7 +5,6 @@ import { getProductList } from '../reducer/product';
 class Index extends PureComponent {
  componentDidMount() {
   const { getProductList } = this.props;
-  console.log('Call te product list  api');
   getProductList();
  }
 
@@ -17,7 +16,7 @@ class Index extends PureComponent {
  render() {
   const productList = JSON.parse(localStorage.getItem('ProductList'));
   let showList;
-  if (productList.length > 0) {
+  if (productList) {
    showList = productList.map((item) => {
     return (
      <tr>
