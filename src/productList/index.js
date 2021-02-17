@@ -14,7 +14,7 @@ class Index extends PureComponent {
  };
 
  render() {
-  const productList = JSON.parse(localStorage.getItem('ProductList'));
+  const { productList } = this.props;
   let showList;
   if (productList) {
    showList = productList.map((item) => {
@@ -63,11 +63,9 @@ class Index extends PureComponent {
  }
 }
 
-// const mapStateToProps = (state) => ({
-//  userData: state.auth.user_data,
-//  saved: state.user.saved,
-//  companyMemberList: state.company.companyMemberList,
-// });
+const mapStateToProps = (state) => ({
+ productList: state.product.productList,
+});
 
 const mapDispatchToProps = (dispatch) => {
  return {
@@ -75,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
  };
 };
 
-export default connect(null, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

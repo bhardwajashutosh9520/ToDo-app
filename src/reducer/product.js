@@ -5,19 +5,9 @@ import store from 'store';
 // constants
 export const SET_PRODUCT_LIST = 'SET_PRODUCT_LIST';
 export const SET_USER_DATA = 'SET_USER_DATA';
+export const SET_PRODUCT_DETAILS = 'SET_PRODUCT_DETAILS';
 
 // #actions
-
-/**
- * @type {boolean} status
- */
-// function to enable loader
-export function setProductList(data) {
- return {
-  type: SET_PRODUCT_LIST,
-  payload: data,
- };
-}
 
 export function setUserData(data) {
  return {
@@ -26,10 +16,20 @@ export function setUserData(data) {
  };
 }
 
-/**
- * @type {object} status
- */
-// gets the user's profile data
+export function setProductList(data) {
+ return {
+  type: SET_PRODUCT_LIST,
+  payload: data,
+ };
+}
+
+export function setProductDetails(data) {
+ return {
+  type: SET_PRODUCT_DETAILS,
+  payload: data,
+ };
+}
+
 export const startLogin = (data) => {
  return (dispatch) => {
   return axios({
@@ -69,7 +69,7 @@ export const getProductList = () => {
    },
    responseType: 'json',
   }).then((response) => {
-   store.set('ProductList', response.data.data);
+   dispatch(setProductList(response.data.data));
   });
  };
 };
@@ -92,7 +92,7 @@ export const getProductDetails = (id) => {
    },
    responseType: 'json',
   }).then((response) => {
-   store.set('ProductDetail', response.data.data);
+   dispatch(setProductDetails(response.data.data));
   });
  };
 };
@@ -101,6 +101,7 @@ export const getProductDetails = (id) => {
 export const initialState = {
  productList: [],
  userData: {},
+ productDetails: {},
 };
 
 // swicthing action
@@ -115,6 +116,12 @@ const ACTION_HANDLERS = {
   return {
    ...state,
    userData: action.payload,
+  };
+ },
+ [SET_PRODUCT_DETAILS]: (state, action) => {
+  return {
+   ...state,
+   productDetails: action.payload,
   };
  },
 };

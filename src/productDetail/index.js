@@ -10,8 +10,8 @@ class Index extends PureComponent {
  }
 
  render() {
-  const product = JSON.parse(localStorage.getItem('ProductDetail'));
-  const product_detail = get(product, 'product_detail', {});
+  const { productDetails } = this.props;
+  const product_detail = get(productDetails, 'product_detail', {});
   const name = get(product_detail, 'name', '');
   return (
    <div className="container mt-5">
@@ -34,6 +34,9 @@ class Index extends PureComponent {
  }
 }
 
+const mapStateToProps = (state) => ({
+ productDetails: state.product.productDetails,
+});
 
 const mapDispatchToProps = (dispatch) => {
  return {
@@ -41,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
  };
 };
 
-export default connect(null, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
