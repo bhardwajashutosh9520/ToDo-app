@@ -6,9 +6,6 @@ import { get } from 'lodash';
 class Index extends PureComponent {
  componentDidMount() {
   const { getProductDetails, match } = this.props;
-  // const { parameter1, parameter2, parameter3 } = props.match.params;
-
-  console.log('Call te product list  api', match.params.id);
   getProductDetails(match.params.id);
  }
 
