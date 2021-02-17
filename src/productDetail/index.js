@@ -34,11 +34,6 @@ class Index extends PureComponent {
  }
 }
 
-// const mapStateToProps = (state) => ({
-//  userData: state.auth.user_data,
-//  saved: state.user.saved,
-//  companyMemberList: state.company.companyMemberList,
-// });
 
 const mapDispatchToProps = (dispatch) => {
  return {
