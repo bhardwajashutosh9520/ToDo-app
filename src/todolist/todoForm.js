@@ -129,7 +129,7 @@ class Index extends PureComponent {
 
     return (
       <div className="container-fluid mt-5 col-md-4">
-        <h3>MY TO DO APP IS HERE UPDATE</h3>
+        <h3>MY TO DO APP IS HERE UPDATE Again</h3>
         <div>
           <h3>Add item in to do list</h3>
         </div>
